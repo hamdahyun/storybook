@@ -1,0 +1,38 @@
+// float 해제
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// button
+@mixin btnColor($bgColor, $bdColor, $color) {
+  background-color: $bgColor;
+  background-image: none;
+  border: 1px solid $bdColor;
+  color: $color;
+}
+@mixin btnStyle($minWidth, $height, $bdRadius, $fontSize) {
+  min-width: $minWidth;
+  height: $height;
+  padding: 0 18px;
+  border-radius: $bdRadius;
+  text-align: center;
+  font-family: NanumBarunGothic;
+  font-size: $fontSize;
+  line-height: $height;
+}
+
+// retina
+@mixin retina-image($image, $width, $height) {
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@function mallcolor($scheme, $tone: base) {
+  @return map-get(map-get($mallcolor, $scheme), $tone);
+}
